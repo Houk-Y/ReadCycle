@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookSwap Connect</title>
+    <!-- base CSS -->
+    <link rel="stylesheet" href="assets/css/base.css" />
+
+    <!-- page-specific CSS -->
+    <link rel="stylesheet" href="assets/css/index.css" />
+  </head>
+  <body>
+    <!-- ================= NAVBAR ================= -->
+
+    <!-- Guest Navbar -->
+    <header class="nav nav-guest">
+      <nav>
+        <div class="logo">
+          <img
+            class="logo-img"
+            src="assets/images/logo.png"
+            alt="BookSwap Connect Logo"
+          />
+        </div>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="pages/browse.html">Browse</a></li>
+          <li><a href="pages/about.html">About Us</a></li>
+          <li><a href="pages/login.html">Login</a></li>
+          <li><a href="pages/signup.html" class="primary-btn">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- User Navbar -->
+    <header class="nav nav-user hidden">
+      <nav>
+        <div class="logo">
+          <img
+            class="logo-img"
+            src="assets/images/readcycle_logo.png"
+            alt="BookSwap Connect Logo"
+          />
+        </div>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="pages/browse.html">Browse</a></li>
+          <li><a href="pages/add-book.html">Add Book</a></li>
+          <li><a href="pages/my-books.html">My Books</a></li>
+          <li><a href="pages/messages.html">Messages</a></li>
+          <li><a href="pages/wishlist.html">Wishlist</a></li>
+          <li><a href="pages/profile.html">Profile</a></li>
+          <li>
+            <a href="#" id="logoutBtn" class="danger-btn">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Admin Navbar -->
+    <header class="nav nav-admin hidden">
+      <nav>
+        <div class="logo">
+          <img
+            class="logo-img"
+            src="assets/images/readcycle_logo.png"
+            alt="BookSwap Connect Logo"
+          />
+        </div>
+        <ul>
+          <li>
+            <a href="pages/admin/dashboard.html" class="active">Dashboard</a>
+          </li>
+          <li><a href="pages/admin/users.html">Users</a></li>
+          <li><a href="pages/admin/books.html">Books</a></li>
+          <li><a href="pages/admin/reports.html">Reports</a></li>
+          <li><a href="pages/admin/blocked-users.html">Blocked Users</a></li>
+          <li><a href="#" id="logoutBtn" class="danger-btn">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero role-guest role-user">
+      <div class="hero-content">
+        <span class="badge"> Join 10,000+ Book Lovers </span>
+
+        <h1>
+          Give Your Books <br />
+          <span>A Second Chapter</span>
+        </h1>
+
+        <p>
+          Buy, sell, and swap pre-loved books with readers around the world.
+          Every book deserves to be read again.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="primary-btn">Get Started</button>
+          <button class="secondary-btn">Browse Books</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOW IT WORKS ================= -->
+    <section class="how-it-works role-guest role-user">
+      <h2>How It Works</h2>
+      <p>
+        List your books, swap, and discover new reads with fellow book lovers.
+      </p>
+    </section>
+
+    <!-- ================= TRENDING NOW ================= -->
+    <section class="trending-now role-guest role-user">
+      <h2>Trending Now</h2>
+      <!-- Add book cards here dynamically -->
+    </section>
+
+    <!-- ================= RECENTLY LISTED ================= -->
+    <section class="recently-listed role-guest role-user">
+      <h2>Recently Listed</h2>
+      <!-- Add recent books here -->
+    </section>
+
+    <!-- ================= USER DASHBOARD ================= -->
+    <section class="user-dashboard role-user hidden">
+      <h2>Welcome Back 👋</h2>
+      <p>Manage your listings, messages, and wishlist all in one place.</p>
+    </section>
+
+    <!-- ================= ADMIN DASHBOARD ================= -->
+    <section class="admin-dashboard role-admin hidden">
+      <h2>Admin Dashboard</h2>
+      <p>
+        Monitor users, book listings, and reports to maintain platform quality.
+      </p>
+    </section>
+
+    <!-- ================= CALL TO ACTION ================= -->
+    <section class="call-to-action role-guest role-user">
+      <h2>Ready to Start Your Book Swap Journey?</h2>
+      <p>
+        List your books, discover new reads, and connect with book lovers around
+        the world
+      </p>
+      <button>List Your First Book</button>
+      <button>Browse Books</button>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <h3>BookSwap Connect</h3>
+      <p>
+        Join our community of book lovers today! Buy, Sell, and Swap pre-loved
+        books.
+      </p>
+      <p>&copy; 2024 BookSwap Connect. All rights reserved.</p>
+    </footer>
+
+    <!-- ================= ROLE SCRIPT ================= -->
+    <!-- <script>
+      /**
+       * Example role logic
+       * "GUEST", "USER", "ADMIN" from backend/session
+       */
+      const role = localStorage.getItem("role") || "GUEST";
+
+      // Hide all navs and role sections initially
+      document
+        .querySelectorAll(".nav")
+        .forEach((nav) => nav.classList.add("hidden"));
+      document
+        .querySelectorAll(".role-guest,.role-user,.role-admin")
+        .forEach((sec) => sec.classList.add("hidden"));
+
+      if (role === "GUEST") {
+        document.querySelector(".nav-guest").classList.remove("hidden");
+        document
+          .querySelectorAll(".role-guest")
+          .forEach((sec) => sec.classList.remove("hidden"));
+      }
+
+      if (role === "USER") {
+        document.querySelector(".nav-user").classList.remove("hidden");
+        document
+          .querySelectorAll(".role-user")
+          .forEach((sec) => sec.classList.remove("hidden"));
+      }
+
+      if (role === "ADMIN") {
+        document.querySelector(".nav-admin").classList.remove("hidden");
+        document
+          .querySelectorAll(".role-admin")
+          .forEach((sec) => sec.classList.remove("hidden"));
+      }
+    </script> -->
+  </body>
+</html>
