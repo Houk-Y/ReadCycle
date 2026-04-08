@@ -1,0 +1,162 @@
+/* ── BookCard ──────────────────────────────────────────────────
+   Consistent card size across all grid contexts.
+   Image uses padding-top trick for a locked 3:4 aspect ratio,
+   with absolute-positioned img + object-fit: cover so it NEVER
+   stretches, distorts, or overflows regardless of source size.
+─────────────────────────────────────────────────────────────── */
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--parchment-dk);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;                          /* fill grid cell */
+  transition: transform 0.25s var(--ease),
+              box-shadow 0.25s var(--ease),
+              border-color 0.25s var(--ease);
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brass);
+}
+
+/* ── Image wrapper: locked 3∶4 ratio ── */
+.book-card-img {
+  position: relative;
+  width: 100%;
+  padding-top: 133.33%;   /* 4/3 = 1.333… → portrait book shape */
+  background: var(--parchment);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* The actual <img> fills the padded box completely */
+.book-card-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* crop to fill, never stretch */
+  object-position: center;
+  display: block;
+  transition: transform 0.35s var(--ease);
+}
+
+.book-card:hover .book-card-img img {
+  transform: scale(1.05);
+}
+
+/* Fallback when no image */
+.book-card-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--parchment) 0%, var(--parchment-dk) 100%);
+}
+.book-card-fallback span {
+  font-size: 3rem;
+  opacity: 0.3;
+  user-select: none;
+}
+
+/* Sold / reserved overlay */
+.book-card-sold-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 31, 28, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--parchment);
+  text-transform: capitalize;
+  letter-spacing: 0.06em;
+}
+
+/* "Swap OK" badge */
+.book-card-swap {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: var(--moss);
+  color: var(--parchment);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+/* ── Body ── */
+.book-card-body {
+  padding: 0.85rem 1rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;          /* prevents text overflow outside card */
+}
+
+.book-card-category {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  /* clamp to 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.book-card-author {
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.book-card-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--forest);
+  white-space: nowrap;
+}
