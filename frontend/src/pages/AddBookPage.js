@@ -1,0 +1,1 @@
+export { AddBookPage as default } from './BookFormPage';

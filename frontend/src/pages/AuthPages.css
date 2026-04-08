@@ -1,0 +1,89 @@
+.auth-page {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: var(--forest);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background */
+.auth-deco {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(61,90,71,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(201,153,58,0.06) 0%, transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 4rem 0 0;
+  pointer-events: none;
+}
+.auth-deco-books {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  opacity: 0.2;
+}
+.auth-deco-book {
+  border-radius: 2px 4px 4px 2px;
+  animation: floatBook 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+@keyframes floatBook {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* Card */
+.auth-card {
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow-xl);
+}
+
+.auth-logo-wrap { margin-bottom: 1.75rem; }
+.auth-site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+}
+.auth-logo-mark {
+  width: 32px; height: 32px;
+  background: var(--forest);
+  border-radius: var(--radius-xs);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.88rem; font-weight: 700;
+  color: var(--brass);
+}
+.auth-site-logo span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-weight: 700; color: var(--ink);
+}
+
+.auth-heading { font-size: clamp(1.5rem, 4vw, 1.9rem); font-weight: 700; margin-bottom: 0.3rem; }
+.auth-sub     { color: var(--ink-faint); font-size: 0.88rem; margin-bottom: 1.5rem; }
+
+.auth-footer-text {
+  text-align: center;
+  font-size: 0.86rem;
+  color: var(--ink-faint);
+  margin-top: 1.25rem;
+}
+.auth-footer-text a { color: var(--brass); font-weight: 700; }
+
+/* ══ RESPONSIVE ════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .auth-deco { display: none; }
+  .auth-card { border-radius: var(--radius-md); padding: 1.5rem 1.25rem; }
+}
