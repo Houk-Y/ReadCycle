@@ -1,0 +1,58 @@
+.notfound-page {
+  min-height: calc(100vh - 130px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--forest);
+  padding: 3rem 1.5rem;
+}
+
+.notfound-inner {
+  text-align: center;
+  max-width: 500px;
+}
+
+.notfound-decoration {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.nf-books {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  opacity: 0.4;
+}
+.nf-book {
+  border-radius: 2px 4px 4px 2px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+}
+
+.notfound-code {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(6rem, 18vw, 10rem);
+  font-weight: 700;
+  line-height: 0.85;
+  color: var(--brass);
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.notfound-inner h1 {
+  font-size: 2rem;
+  color: var(--parchment);
+  margin-bottom: 0.75rem;
+}
+
+.notfound-inner p {
+  color: var(--sage-light);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.notfound-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}

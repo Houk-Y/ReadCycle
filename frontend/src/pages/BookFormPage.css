@@ -1,0 +1,52 @@
+.book-form-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Image Column */
+.book-form-img-col { display: flex; flex-direction: column; }
+
+.img-upload-area {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3/4;
+  border: 2px dashed var(--parchment-dk);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--parchment);
+  transition: border-color var(--transition), background var(--transition);
+  position: relative;
+}
+.img-upload-area:hover { border-color: var(--brass); background: rgba(201,153,58,0.04); }
+
+.img-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.5rem; padding: 1.5rem; text-align: center;
+}
+.img-placeholder-icon { font-size: 2.5rem; opacity: 0.5; }
+.img-placeholder p { font-size: 0.88rem; font-weight: 600; color: var(--ink-mid); margin: 0; }
+.img-placeholder span { font-size: 0.75rem; color: var(--ink-faint); }
+
+.img-preview { width: 100%; height: 100%; object-fit: cover; }
+
+.img-remove-btn { margin-top: 0.75rem; width: 100%; }
+
+/* Form Column */
+.book-form-fields {
+  background: var(--white);
+  border: 1px solid var(--parchment-dk);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+}
+
+.form-actions { display: flex; gap: 0.75rem; }
+
+@media (max-width: 768px) {
+  .book-form-layout { grid-template-columns: 1fr; }
+  .book-form-img-col { max-width: 260px; margin: 0 auto; }
+}
