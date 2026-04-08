@@ -15,7 +15,7 @@ const Book = require('../models/Book');
 const Transaction = require('../models/Transaction');
 const Wishlist = require('../models/Wishlist');
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://readcycle_user:H5EbCu4LX.n8gf_@cluster0.kt0a219.mongodb.net/?appName=Cluster0';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://markebook_db:lYUbtCn59FgCJpt2@cluster0.juiwlqe.mongodb.net/?appName=Cluster0';
 
 const sampleUsers = [
   {
